@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(./styles/fonts/Roboto-VariableFont_wdth\,wght.ttf);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.max-width-1440 {
+    max-width: 1440px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+header {
+    background-color: #FA8B01;
+}
+
+.logo {
+    height: 48px;
+    cursor: pointer;
+}
+
+.menu-img {
+    height: 32px;
+    cursor: pointer;
+}
+
+nav {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+
+}
+
+footer {
+    height: 64px;
+    background-color: #FA8B01;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.footer-links {
+    color: white;
+}
+
+.footer-links:hover {
+text-decoration: underline;
+}
+
+.aot-section {
+    background-image: url(./assets/img/aot_background.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+
+.content {
+    padding: 8px 8px 0 8px;
+}
+
+.dish-card {
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
