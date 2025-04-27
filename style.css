@@ -144,7 +144,7 @@ footer {
     top: 310px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 75%;
 }
 
 .restaurant-img {
@@ -177,6 +177,24 @@ footer {
     width: 100%;
     object-fit: cover;
 
+}
+
+.website-left-side {
+    width: 100%;
+
+}
+
+.website-right-side {
+    width: 30%;
+}
+
+.test {
+    display: flex;
+}
+
+.test2 {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 600px) {
