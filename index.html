@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
+    <link rel="shortcut icon" href="./assets/icons/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="./scripts/database.js"></script>
+    <script src="./scripts/templates.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body onload="render()">
 
     <header>
-        <nav class="max-width-1440">
+        <nav>
             <img class="logo" src="./assets/img/Logo.png" alt="">
             <img class='menu-img' src="./assets/icons/menu.png" alt="">
         </nav>
     </header>
 
-    <section class="aot-section">
+    <section class="aot-section"></section>
+
+    <section class="restaurant-info-section">
+        <div class="restaurant-img-container">
+            <img class="restaurant-img" src="./assets/icons/apple-touch-icon.png" alt="">
+        </div>
+        <div class="restaurant-title-container">
+            <h1>Restaurant Pizza</h1>
+            <span class="customer-review">Bewertung (4.2 von 5 Sternen) </span>
+        </div>
+        <div class="category-container">
+            <img class="arrow" src="./assets/icons/arrow.png" alt="Pfeil">
+            <div class="category-box">
+                <a href="#hauptgerichte">
+                    <h2>Hauptgerichte</h2>
+                </a>
+                <a href="">
+                    <h2>Salate</h2>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-dishes">
+        <img class="hauptgerichte-img" src="./assets/img/hautgerichte.jpg" alt="">
+        <h3 id="hauptgerichte">Hauptgerichte</h3>
     </section>
 
     <section>
         <div id="content" class="content"></div>
     </section>
-    
+
     <footer>
         <a class="footer-links" href="">Impressum</a>|
         <a class="footer-links" href="">Datenschutz</a>
     </footer>
 
 </body>
+
 </html>

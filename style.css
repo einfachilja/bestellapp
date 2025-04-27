@@ -19,7 +19,21 @@ body {
 
 a {
     text-decoration: none;
+    color: grey;
 
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 18px;
 }
 
 header {
@@ -41,7 +55,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 24px;
 
 }
 
@@ -57,10 +71,11 @@ footer {
 
 .footer-links {
     color: white;
+    font-size: 20px;
 }
 
 .footer-links:hover {
-text-decoration: underline;
+    text-decoration: underline;
 }
 
 .aot-section {
@@ -75,8 +90,97 @@ text-decoration: underline;
 }
 
 .dish-card {
-    border: 1px solid grey;
+    border: 1px solid rgb(226, 218, 206);
     border-radius: 8px;
-    padding: 24px;
     margin-bottom: 24px;
+    background-color: #F9F7F4;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.dish-card:hover {
+    cursor: pointer;
+    background-color: #f3efe9;
+}
+
+.dish-card-left {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 12px;
+}
+
+.price-tag {
+    color: #FA8B01;
+}
+
+.add-img {
+    height: 32px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.restaurant-info-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-title-container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0 12px 24px;
+    gap: 8px
+}
+
+.customer-review {
+    color: #FA8B01;
+    font-weight: bold;
+}
+
+.restaurant-img-container {
+    position: absolute;
+    top: 310px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.restaurant-img {
+    width: 112px;
+    border-radius: 50%;
+}
+
+.category-container {
+    display: flex;
+    background-color: #F9F7F4;
+    padding: 24px;
+}
+
+.category-box {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.arrow {
+    width: 32px;
+}
+
+#hauptgerichte {
+    padding: 12px 0 12px 24px;
+}
+
+.hauptgerichte-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+@media (max-width: 600px) {
+    .restaurant-title-container {
+        margin-top: 40px
+    }
 }
