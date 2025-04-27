@@ -11,3 +11,7 @@ function render() {
 
     }
 }
+
+function toggleShopingBasket() {
+    document.getElementById('page_style_side').classList.toggle('d-none');
+}

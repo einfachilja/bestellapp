@@ -17,20 +17,22 @@
     <header>
         <nav>
             <img class="logo" src="./assets/img/Logo.png" alt="">
-            <img class='menu-img' src="./assets/icons/menu.png" alt="">
+            <img onclick="toggleShopingBasket()" class='menu-img' src="./assets/icons/menu.png" alt="">
         </nav>
     </header>
 
-    <div class="test">
+    <div class="website-main">
 
-        <div class="website-left-side">
+        <div class="page-style-main">
 
-            <section class="aot-section"></section>
-
-            <section class="restaurant-info-section">
+            <section class="aot-section">
                 <div class="restaurant-img-container">
                     <img class="restaurant-img" src="./assets/icons/apple-touch-icon.png" alt="">
                 </div>
+            </section>
+
+            <section class="restaurant-info-section">
+
                 <div class="restaurant-title-container">
                     <h1>Restaurant Pizza</h1>
                     <span class="customer-review">Bewertung (4.2 von 5 Sternen) </span>
@@ -59,11 +61,13 @@
 
         </div>
 
-        <div class="website-right-side">
-            <div class="test2">
-                WARENKORB
+        <aside id="page_style_side" class="page-style-side">
+            <div class="shopping-basket">
+                <h2>Warenkorb</h2>
             </div>
-        </div>
+            <div id="basket_content">
+            </div>
+        </aside>
 
     </div>
 
