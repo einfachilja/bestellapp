@@ -1,7 +1,7 @@
 @font-face {
-    font-family: "Roboto";
-    src: url(./styles/fonts/Roboto-VariableFont_wdth\wght.ttf);
-  }
+  font-family: "Roboto";
+  src: url(./styles/fonts/Roboto-VariableFont_wdth\wght.ttf);
+}
 
 * {
   margin: 0;
@@ -222,6 +222,17 @@ footer {
 .basket-btn {
   cursor: pointer;
   width: 18px;
+}
+
+.basket-sum-content {
+  padding: 12px 24px 12px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.basket-sum-content-box {
+  display: flex;
+  justify-content: space-between;
 }
 
 .d-none {
