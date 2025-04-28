@@ -17,7 +17,9 @@
     <header>
         <nav>
             <img class="logo" src="./assets/img/Logo.png" alt="">
-            <img onclick="toggleShopingBasket()" class='menu-img' src="./assets/icons/menu.png" alt="">
+            <img id="open-menu-img" onclick="openShopingBasket()" class='menu-img' src="./assets/icons/open.png" alt="">
+            <img id="close-menu-img" onclick="closeShopingBasket()" class='menu-img d-none'
+                src="./assets/icons/close.png" alt="">
         </nav>
     </header>
 
@@ -61,7 +63,7 @@
 
         </div>
 
-        <aside id="page_style_side" class="page-style-side">
+        <aside id="page_style_side" class="page-style-side d-none">
             <div class="shopping-basket">
                 <div class="shopping-basket-top">
                     <h2>Warenkorb</h2>
