@@ -18,11 +18,12 @@ function renderShoppingBasket() {
 
     for (let b = 0; b < shoppingBasket.length; b++) {
         let dishBasketName = shoppingBasket[b].name;
-        let dishBasketPrice = shoppingBasket[b].price;
         let dishBasketAmount = shoppingBasket[b].amount;
+        let dishNewPrice = shoppingBasket[b].new_price;
 
-        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketPrice, dishBasketAmount, b);
+        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketAmount, b, dishNewPrice);
     }
+
 }
 
 function openShopingBasket() {
@@ -45,15 +46,32 @@ function addToShoppingBasket(index) {
 
 function increaseAmount(index) {
     shoppingBasket[index].amount++;
+    shoppingBasket[index].new_price = shoppingBasket[index].price * shoppingBasket[index].amount;
     renderShoppingBasket();
 }
 
 function decreaseAmount(b) {
-    if (shoppingBasket[b].amount = 1) {
+    if (shoppingBasket[b].amount == 0) {
         shoppingBasket.splice(b, 1);
-    } else shoppingBasket[b].amount--;
-    renderShoppingBasket();   
+        renderShoppingBasket();  
+    } else {
+        shoppingBasket[b].amount--;
+        shoppingBasket[b].new_price = shoppingBasket[b].price * shoppingBasket[b].amount;
+        console.log(shoppingBasket[b].new_price);
+        renderShoppingBasket();  
+    }
+    
 }
+
+function deleteFromShoppingBasket(b) {
+    shoppingBasket.splice(b, 1);
+    renderShoppingBasket()
+}
+
+
+
+
+
 
 
 
