@@ -11,13 +11,13 @@ function getDishesTemplate(NAME, INFO, PRICE, index) {
         `;
 }
 
-function getBasketTemplate(dishBasketName, dishBasketPrice, dishBasketAmount) {
+function getBasketTemplate(dishBasketName, dishBasketPrice, dishBasketAmount, b) {
     return `
         <div>${dishBasketName}</div>
         <div class="dish-basket-info">    
-            <div> - </div>
+            <div onclick="decreaseAmount(${b})"> - </div>
             <div>${dishBasketAmount}x</div>
-            <div> + </div>
+            <div onclick="increaseAmount(${b})"> + </div>
             <div>${dishBasketPrice.toFixed(2).toString().replace('.', ',')} €</div>
             <div> x </div>
         </div>

@@ -21,13 +21,8 @@ function renderShoppingBasket() {
         let dishBasketPrice = shoppingBasket[b].price;
         let dishBasketAmount = shoppingBasket[b].amount;
 
-        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketPrice, dishBasketAmount);
+        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketPrice, dishBasketAmount, b);
     }
-}
-
-function addToShoppingBasket(index) {
-    shoppingBasket.push(dishes[index]);
-    renderShoppingBasket();
 }
 
 function openShopingBasket() {
@@ -41,6 +36,25 @@ function closeShopingBasket() {
     document.getElementById('close-menu-img').classList.add('d-none');
     document.getElementById('open-menu-img').classList.remove('d-none');
 }
+
+function addToShoppingBasket(index) {
+    shoppingBasket.splice(index, 1, dishes[index])
+    increaseAmount(index);
+    renderShoppingBasket();
+}
+
+function increaseAmount(index) {
+    shoppingBasket[index].amount++;
+    renderShoppingBasket();
+}
+
+function decreaseAmount(b) {
+    if (shoppingBasket[b].amount = 1) {
+        shoppingBasket.splice(b, 1);
+    } else shoppingBasket[b].amount--;
+    renderShoppingBasket();   
+}
+
 
 
 
