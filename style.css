@@ -192,8 +192,6 @@ footer {
 .page-style-side {
     box-shadow: 0px 0px 3px 0px #aaaaaa;
     background-color: white;
-    width: 344px;
-
 }
 
 .shopping-basket {
@@ -215,11 +213,12 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 344px;
 }
 
 .dish-basket-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -233,15 +232,26 @@ footer {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 630px) {
     .page-style-side {
         background-color: white;
         width: 100%;
-        position: absolute;
-        top: 64px;
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .shopping-basket-top {
+        background-color: #1E86FE;
+        margin: 4px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .basket-content {
+        width: 100%;
     }
 
 }
