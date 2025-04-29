@@ -12,6 +12,19 @@ function render() {
     }
 }
 
+function renderShoppingBasket() {
+    let shoppingBasketRef = document.getElementById("basket_content");
+    shoppingBasketRef.innerHTML = "";
+
+    for (let indexBasket = 0; indexBasket < shoppingBasket.length; indexBasket++) {
+        let dishBasketName = shoppingBasket[indexBasket].name;
+        let dishBasketAmount = shoppingBasket[indexBasket].amount;
+        let dishBasketPrice = shoppingBasket[indexBasket].price;
+
+        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, indexBasket);
+    }
+}
+
 function addToShoppingBasket(index) {
     dishInBasket = shoppingBasket.find((dish) => { return dish.name === dishes[index].name; })
     if (!dishInBasket) {
@@ -24,20 +37,8 @@ function addToShoppingBasket(index) {
     } else {
         dishInBasket.amount++
     }
+    checkEmptyShoppingBasket();
     renderShoppingBasket();
-}
-
-function renderShoppingBasket() {
-    let shoppingBasketRef = document.getElementById("basket_content");
-    shoppingBasketRef.innerHTML = "";
-
-    for (let indexBasket = 0; indexBasket < shoppingBasket.length; indexBasket++) {
-        let dishBasketName = shoppingBasket[indexBasket].name;
-        let dishBasketAmount = shoppingBasket[indexBasket].amount;
-        let dishBasketPrice = shoppingBasket[indexBasket].price;
-
-        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, indexBasket);
-    }
 }
 
 function openShopingBasket() {
@@ -54,46 +55,35 @@ function closeShopingBasket() {
 
 function increaseAmount(indexBasket) {
     shoppingBasket[indexBasket].amount++;
-    renderShoppingBasketSum();
     renderShoppingBasket();
 }
 
 function decreaseAmount(indexBasket) {
-    if (shoppingBasket[indexBasket].amount == 0) {
-        shoppingBasket.splice(indexBasket, 1);
-        renderShoppingBasket();
+    if (shoppingBasket[indexBasket].amount === 1) {
+        console.log('Amount liegt bei: ' + shoppingBasket[indexBasket].amount);
+        deleteFromShoppingBasket(indexBasket)
+        closeShopingBasket()
     } else {
         shoppingBasket[indexBasket].amount--;
-        renderShoppingBasketSum();
-        renderShoppingBasket();
     }
+    renderShoppingBasket();
 }
 
 function deleteFromShoppingBasket(indexBasket) {
     shoppingBasket.splice(indexBasket, 1);
+    checkEmptyShoppingBasket();
     renderShoppingBasket();
-    renderShoppingBasketSum();
     render();
 }
 
-// function renderShoppingBasketSum() {
+function checkEmptyShoppingBasket() {
+    let lenghtShoppingBasket = shoppingBasket.length;
 
-//     let basketSumRef = document.getElementById("basket_sum");
-//     basketSumRef.innerHTML = "";
+    if (lenghtShoppingBasket === 0) {
+        document.getElementById('empty_basket_content').classList.remove('d-none');
 
-//     let sum = 0;
-//     let sumGesamt = 0;
-//     let delivery = 5;
-//     let pickup = 0;
-
-//     for (let i = 0; i < shoppingBasket.length; i++) {
-//         sum += shoppingBasket[i].new_price;
-//     }
-
-//     basketSumRef.innerHTML = `
-//   <div class="basket-sum-content">
-//     <div class="basket-sum-content-box">Zwischensumme <div>${sum.toFixed(2).toString().replace('.', ',')} €</div></div>
-//     <div class="basket-sum-content-box">Lieferkosten<div>${delivery.toFixed(2).toString().replace('.', ',')} €</div></div>
-//     <div class="basket-sum-content-box"><b>Gesamt</b><div>${sum.toFixed(2).toString().replace('.', ',')} €</div></div>
-//     </div>`;
-// }
+    } else {
+        console.log('Array ist gefüllt');
+        document.getElementById('empty_basket_content').classList.add('d-none');
+    }
+}
