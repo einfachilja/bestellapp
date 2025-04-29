@@ -1,5 +1,3 @@
-let shoppingBasket = [];
-
 function render() {
     let contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
@@ -37,6 +35,7 @@ function addToShoppingBasket(index) {
     } else {
         dishInBasket.amount++
     }
+    openShopingBasket();
     checkEmptyShoppingBasket();
     renderShoppingBasket();
 }
@@ -60,9 +59,7 @@ function increaseAmount(indexBasket) {
 
 function decreaseAmount(indexBasket) {
     if (shoppingBasket[indexBasket].amount === 1) {
-        console.log('Amount liegt bei: ' + shoppingBasket[indexBasket].amount);
-        deleteFromShoppingBasket(indexBasket)
-        closeShopingBasket()
+        deleteFromShoppingBasket(indexBasket);
     } else {
         shoppingBasket[indexBasket].amount--;
     }
@@ -81,9 +78,8 @@ function checkEmptyShoppingBasket() {
 
     if (lenghtShoppingBasket === 0) {
         document.getElementById('empty_basket_content').classList.remove('d-none');
-
+        closeShopingBasket();
     } else {
-        console.log('Array ist gefüllt');
         document.getElementById('empty_basket_content').classList.add('d-none');
     }
 }

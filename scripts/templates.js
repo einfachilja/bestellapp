@@ -1,6 +1,6 @@
 function getDishesTemplate(NAME, INFO, PRICE, index) {
     return `
-        <div class="dish-card" onclick="addToShoppingBasket(${index}), openShopingBasket()">
+        <div class="dish-card" onclick="addToShoppingBasket(${index})">
             <div class="dish-card-left">
                 <h3>${NAME}</h3>
                 ${INFO}
