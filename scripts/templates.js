@@ -11,15 +11,15 @@ function getDishesTemplate(NAME, INFO, PRICE, index) {
         `;
 }
 
-function getBasketTemplate(dishBasketName, dishBasketAmount, b, dishNewPrice) {
+function getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, indexBasket) {
     return `
         <div>${dishBasketName}</div>
         <div class="dish-basket-info">    
-            <img src="./assets/icons/minus.png" class="basket-btn" onclick="decreaseAmount(${b})" alt="">    
+            <img src="./assets/icons/minus.png" class="basket-btn" onclick="decreaseAmount(${indexBasket})" alt="">    
             <div>${dishBasketAmount}x</div>
-            <img src="./assets/icons/plus.png" class="basket-btn" onclick="increaseAmount(${b})" alt="">   
-            <div>${dishNewPrice.toFixed(2).toString().replace('.', ',')} €</div>
-            <img src="./assets/icons/trash.png" class="basket-btn" onclick="deleteFromShoppingBasket(${b})" alt="">   
+            <img src="./assets/icons/plus.png" class="basket-btn" onclick="increaseAmount(${indexBasket})" alt="">   
+            <div>${(dishBasketPrice * dishBasketAmount).toFixed(2).toString().replace('.', ',')}€ </div>
+            <img src="./assets/icons/trash.png" class="basket-btn" onclick="deleteFromShoppingBasket(${indexBasket})" alt="">   
         </div>
         `;
 }
