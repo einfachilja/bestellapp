@@ -96,11 +96,9 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  cursor: pointer;
 }
 
 .dish-card:hover {
-  cursor: pointer;
   background-color: #f3efe9;
 }
 
@@ -195,7 +193,7 @@ footer {
 
 .shopping-basket {
   background-color: white;
-  width: 100%;
+  width: 344px;
   position: sticky;
   top: 0px;
 }
@@ -211,7 +209,6 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 344px;
 }
 
 .dish-basket-info {
@@ -246,15 +243,50 @@ footer {
   color: #cecdcd;
 }
 
+.sum-basket-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .sum-basket-content {
   padding: 12px 12px 12px 12px;
-  height: 200px;
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .sum-basket-content-box {
   display: flex;
   justify-content: space-between;
+}
+
+.order-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+button {
+  padding: 8px;
+  background-color: #fa8b01;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.button-container {
+  padding: 12px 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: grey;
+  align-items: center;
 }
 
 .d-none {
@@ -285,7 +317,7 @@ footer {
     cursor: pointer;
   }
 
-  .basket-content {
+  .shopping-basket {
     width: 100%;
   }
 }
