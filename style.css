@@ -246,6 +246,17 @@ footer {
   color: #cecdcd;
 }
 
+.sum-basket-content {
+  padding: 12px 12px 12px 12px;
+  height: 200px;
+  gap: 4px;
+}
+
+.sum-basket-content-box {
+  display: flex;
+  justify-content: space-between;
+}
+
 .d-none {
   display: none;
 }

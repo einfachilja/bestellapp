@@ -81,15 +81,25 @@ function checkEmptyShoppingBasket() {
 
     if (lenghtShoppingBasket === 0) {
         document.getElementById('empty_basket_content').classList.remove('d-none');
+        document.getElementById('sum_basket_content').classList.add('d-none');
         closeShopingBasket();
     } else {
         document.getElementById('empty_basket_content').classList.add('d-none');
+        document.getElementById('sum_basket_content').classList.remove('d-none');
     }
 }
 
 function calculateSumShoppingBasket() {
+    let sumBasketContentRef = document.getElementById('sum_basket_content');
+    sumBasketContentRef.innerHTML = '';
+
     let sum = 0;
+    let delivery = 5;
+
     for (let indexSum = 0; indexSum < shoppingBasket.length; indexSum++) {
         sum += shoppingBasket[indexSum].price * shoppingBasket[indexSum].amount;
+
+        sumBasketContentRef.innerHTML = getSumShoppingBasketTemplate(sum, delivery);
     }
 }
+

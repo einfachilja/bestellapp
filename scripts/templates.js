@@ -5,8 +5,9 @@ function getDishesTemplate(NAME, INFO, PRICE, index) {
                 <h3>${NAME}</h3>
                 ${INFO}
                 <span class="price-tag">${PRICE.toFixed(2).toString().replace(".", ",")} €</span>
-            </div class="dish-card-right">
+                </div class="dish-card-right">
                 <img  class="add-img" src="./assets/icons/add.png" alt="">  
+            </div>
         </div>
         `;
 }
@@ -20,6 +21,16 @@ function getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, in
             <img src="./assets/icons/plus.png" class="basket-btn" onclick="increaseAmount(${indexBasket})" alt="">   
             <div>${(dishBasketPrice * dishBasketAmount).toFixed(2).toString().replace('.', ',')}€ </div>
             <img src="./assets/icons/trash.png" class="basket-btn" onclick="deleteFromShoppingBasket(${indexBasket})" alt="">   
+        </div>
+        `;
+}
+
+function getSumShoppingBasketTemplate(sum, delivery) {
+    return `
+        <div class="sum-basket-content">
+            <div class="sum-basket-content-box"><span>Zwischensumme:</span> ${sum.toFixed(2).toString().replace('.', ',')} €</div>
+            <div class="sum-basket-content-box"><span>Lieferkosten:</span> ${delivery.toFixed(2).toString().replace('.', ',')} €</div>
+            <div class="sum-basket-content-box"><h4>Gesamt:</h4> <b>${(sum + delivery).toFixed(2).toString().replace('.', ',')} €</b></div>
         </div>
         `;
 }
