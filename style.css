@@ -38,6 +38,9 @@ h3 {
 
 header {
   background-color: #fa8b01;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
 .logo {
@@ -195,7 +198,7 @@ footer {
   background-color: white;
   width: 344px;
   position: sticky;
-  top: 0px;
+  top: 64px;
 }
 
 .shopping-basket-top {
@@ -300,8 +303,7 @@ button {
   text-align: center;
   font-weight: bold;
   color: #fa8b01;
-  font-size: 20px;    
-  height: 100vh;
+  font-size: 20px;
 }
 
 .d-none {
@@ -319,17 +321,10 @@ button {
     background-color: white;
     width: 100%;
     position: fixed;
-    top: 0;
+    top: 63px;
     left: 0;
     right: 0;
     bottom: 0;
-  }
-
-  .shopping-basket-top {
-    background-color: #1e86fe;
-    margin: 4px;
-    color: white;
-    cursor: pointer;
   }
 
   .shopping-basket {
