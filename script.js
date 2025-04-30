@@ -1,3 +1,12 @@
+function init() {
+    getFromLocalStorage();
+    render();
+    checkEmptyShoppingBasket();
+    renderShoppingBasket();
+    renderSumShoppingBasket();
+
+}
+
 function render() {
     let contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
@@ -23,6 +32,20 @@ function renderShoppingBasket() {
     }
 }
 
+function renderSumShoppingBasket() {
+    let sumBasketContentRef = document.getElementById('sum_basket_content');
+    sumBasketContentRef.innerHTML = '';
+
+    let sum = 0;
+    let delivery = 5;
+
+    for (let indexSum = 0; indexSum < shoppingBasket.length; indexSum++) {
+        sum += shoppingBasket[indexSum].price * shoppingBasket[indexSum].amount;
+
+        sumBasketContentRef.innerHTML = getSumShoppingBasketTemplate(sum, delivery);
+    }
+}
+
 function addToShoppingBasket(index) {
     dishInBasket = shoppingBasket.find((dish) => { return dish.name === dishes[index].name; })
     if (!dishInBasket) {
@@ -35,9 +58,10 @@ function addToShoppingBasket(index) {
     } else {
         dishInBasket.amount++
     }
+    saveToLocalStrorage();
     openShopingBasket();
     checkEmptyShoppingBasket();
-    calculateSumShoppingBasket();
+    renderSumShoppingBasket();
     renderShoppingBasket();
 }
 
@@ -55,7 +79,8 @@ function closeShopingBasket() {
 
 function increaseAmount(indexBasket) {
     shoppingBasket[indexBasket].amount++;
-    calculateSumShoppingBasket();
+    saveToLocalStrorage();
+    renderSumShoppingBasket();
     renderShoppingBasket();
 }
 
@@ -65,12 +90,14 @@ function decreaseAmount(indexBasket) {
     } else {
         shoppingBasket[indexBasket].amount--;
     }
-    calculateSumShoppingBasket();
+    saveToLocalStrorage();
+    renderSumShoppingBasket();
     renderShoppingBasket();
 }
 
 function deleteFromShoppingBasket(indexBasket) {
     shoppingBasket.splice(indexBasket, 1);
+    saveToLocalStrorage();
     checkEmptyShoppingBasket();
     renderShoppingBasket();
     render();
@@ -89,17 +116,20 @@ function checkEmptyShoppingBasket() {
     }
 }
 
-function calculateSumShoppingBasket() {
-    let sumBasketContentRef = document.getElementById('sum_basket_content');
-    sumBasketContentRef.innerHTML = '';
-
-    let sum = 0;
-    let delivery = 5;
-
-    for (let indexSum = 0; indexSum < shoppingBasket.length; indexSum++) {
-        sum += shoppingBasket[indexSum].price * shoppingBasket[indexSum].amount;
-
-        sumBasketContentRef.innerHTML = getSumShoppingBasketTemplate(sum, delivery);
-    }
+function saveToLocalStrorage() {
+    localStorage.setItem('dishes', JSON.stringify(dishes));
+    localStorage.setItem('shoppingBasket', JSON.stringify(shoppingBasket));
 }
 
+function getFromLocalStorage() {
+    let localStorageDishes = JSON.parse(localStorage.getItem("dishes"));
+    let localStorageShoppingBasket = JSON.parse(localStorage.getItem("shoppingBasket"));
+
+    if (localStorageDishes == null) {
+        dishes != localStorageDishes;
+        shoppingBasket != localStorageShoppingBasket;
+    } else {
+        dishes = localStorageDishes;
+        shoppingBasket = localStorageShoppingBasket;
+    }
+}
