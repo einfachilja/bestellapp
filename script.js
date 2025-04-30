@@ -118,19 +118,15 @@ function checkEmptyShoppingBasket() {
 }
 
 function saveToLocalStrorage() {
-    localStorage.setItem('dishes', JSON.stringify(dishes));
     localStorage.setItem('shoppingBasket', JSON.stringify(shoppingBasket));
 }
 
 function getFromLocalStorage() {
-    let localStorageDishes = JSON.parse(localStorage.getItem("dishes"));
     let localStorageShoppingBasket = JSON.parse(localStorage.getItem("shoppingBasket"));
 
-    if (localStorageDishes == null) {
-        dishes != localStorageDishes;
+    if (localStorageShoppingBasket == null) {
         shoppingBasket != localStorageShoppingBasket;
     } else {
-        dishes = localStorageDishes;
         shoppingBasket = localStorageShoppingBasket;
     }
 }

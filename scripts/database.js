@@ -22,6 +22,12 @@ let dishes = [
         "info": "mit Käse und Knoblauch",
         "price": 12.90,
         "amount": 0
+    },
+    {
+        "name": "Pizza Quattro Formaggi",
+        "info": "mit Mozzarella, Gouda und Parmesan",
+        "price": 10.50,
+        "amount": 0
     }
 ];
 
