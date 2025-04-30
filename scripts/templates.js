@@ -33,9 +33,9 @@ function getSumShoppingBasketTemplate(sum, delivery) {
             <div class="sum-basket-content-box"><span>Lieferkosten:</span> ${delivery.toFixed(2).toString().replace('.', ',')} €</div>
             <div class="sum-basket-content-box"><h4>Gesamt:</h4> <b>${(sum + delivery).toFixed(2).toString().replace('.', ',')} €</b></div>
         </div>
-            <div class="button-container" onclick="alert('overlay: Bestellung erfolgreich und array leeren')">
-            <button type="button">Bestellen</button>
-            <p>Durch Anklicken von Bestellen und bezahlen bestätigst du den Warenkorb und deine eingegebenen
+            <div class="button-container">
+            <button onclick="confirmOrder()" type="button">Bestellen</button>
+            <p>Durch Anklicken von Bestellen bestätigst du den Warenkorb und deine eingegebenen
             Daten und stimmst unseren Datenschutzbestimmungen sowie AGB zu.</p>
             <div>
         </div>

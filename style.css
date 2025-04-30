@@ -289,11 +289,26 @@ button {
   align-items: center;
 }
 
+.overlay {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  padding: 200px 12px 0 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #fa8b01;
+  font-size: 20px;    
+  height: 100vh;
+}
+
 .d-none {
   display: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 950px) {
   .restaurant-title-container {
     margin-top: 40px;
   }
