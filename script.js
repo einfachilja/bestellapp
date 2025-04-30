@@ -99,6 +99,7 @@ function deleteFromShoppingBasket(indexBasket) {
     shoppingBasket.splice(indexBasket, 1);
     saveToLocalStrorage();
     checkEmptyShoppingBasket();
+    renderSumShoppingBasket();
     renderShoppingBasket();
     render();
 }
