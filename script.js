@@ -30,13 +30,14 @@ function addToShoppingBasket(index) {
             "name": dishes[index].name,
             "price": dishes[index].price,
             "amount": 1
-        }
+        };
         shoppingBasket.push(dishToBasket);
     } else {
         dishInBasket.amount++
     }
     openShopingBasket();
     checkEmptyShoppingBasket();
+    calculateSumShoppingBasket();
     renderShoppingBasket();
 }
 
@@ -54,6 +55,7 @@ function closeShopingBasket() {
 
 function increaseAmount(indexBasket) {
     shoppingBasket[indexBasket].amount++;
+    calculateSumShoppingBasket();
     renderShoppingBasket();
 }
 
@@ -63,6 +65,7 @@ function decreaseAmount(indexBasket) {
     } else {
         shoppingBasket[indexBasket].amount--;
     }
+    calculateSumShoppingBasket();
     renderShoppingBasket();
 }
 
@@ -81,5 +84,12 @@ function checkEmptyShoppingBasket() {
         closeShopingBasket();
     } else {
         document.getElementById('empty_basket_content').classList.add('d-none');
+    }
+}
+
+function calculateSumShoppingBasket() {
+    let sum = 0;
+    for (let indexSum = 0; indexSum < shoppingBasket.length; indexSum++) {
+        sum += shoppingBasket[indexSum].price * shoppingBasket[indexSum].amount;
     }
 }
