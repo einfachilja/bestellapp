@@ -11,11 +11,8 @@ function render() {
     let contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
 
-    for (let index = 0; index < dishes.length; index++) {
-        const NAME = dishes[index].name;
-        const INFO = dishes[index].info;
-        const PRICE = dishes[index].price;
-        contentRef.innerHTML += getDishesTemplate(NAME, INFO, PRICE, index);
+    for (let indexDishes = 0; indexDishes < dishes.length; indexDishes++) {
+        contentRef.innerHTML += getDishesTemplate(indexDishes);
     }
 }
 
@@ -24,11 +21,7 @@ function renderShoppingBasket() {
     shoppingBasketRef.innerHTML = "";
 
     for (let indexBasket = 0; indexBasket < shoppingBasket.length; indexBasket++) {
-        let dishBasketName = shoppingBasket[indexBasket].name;
-        let dishBasketAmount = shoppingBasket[indexBasket].amount;
-        let dishBasketPrice = shoppingBasket[indexBasket].price;
-
-        shoppingBasketRef.innerHTML += getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, indexBasket);
+        shoppingBasketRef.innerHTML += getBasketTemplate(indexBasket);
     }
 }
 
@@ -46,13 +39,13 @@ function renderSumShoppingBasket() {
     }
 }
 
-function addToShoppingBasket(index) {
+function addToShoppingBasket(indexDishes) {
     document.getElementById('overlay').classList.add('d-none');
-    dishInBasket = shoppingBasket.find((dish) => { return dish.name === dishes[index].name; })
+    dishInBasket = shoppingBasket.find((dish) => { return dish.name === dishes[indexDishes].name; })
     if (!dishInBasket) {
         let dishToBasket = {
-            "name": dishes[index].name,
-            "price": dishes[index].price,
+            "name": dishes[indexDishes].name,
+            "price": dishes[indexDishes].price,
             "amount": 1
         };
         shoppingBasket.push(dishToBasket);

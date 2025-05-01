@@ -1,25 +1,25 @@
-function getDishesTemplate(NAME, INFO, PRICE, index) {
+function getDishesTemplate(indexDishes) {
     return `
         <div class="dish-card">
             <div class="dish-card-left">
-                <h3>${NAME}</h3>
-                ${INFO}
-                <span class="price-tag">${PRICE.toFixed(2).toString().replace(".", ",")} €</span>
+                <h3>${dishes[indexDishes].name}</h3>
+                ${dishes[indexDishes].info}
+                <span class="price-tag">${dishes[indexDishes].price.toFixed(2).toString().replace(".", ",")} €</span>
                 </div class="dish-card-right">
-                <img  class="add-img" src="./assets/icons/add.png" alt="" onclick="addToShoppingBasket(${index})">  
+                <img  class="add-img" src="./assets/icons/add.png" alt="" onclick="addToShoppingBasket(${indexDishes})">  
             </div>
         </div>
         `;
 }
 
-function getBasketTemplate(dishBasketName, dishBasketAmount, dishBasketPrice, indexBasket) {
+function getBasketTemplate(indexBasket) {
     return `
-        <div>${dishBasketName}</div>
+        <div>${shoppingBasket[indexBasket].name}</div>
         <div class="dish-basket-info">    
             <img src="./assets/icons/minus.png" class="basket-btn" onclick="decreaseAmount(${indexBasket})" alt="">    
-            <div>${dishBasketAmount}x</div>
+            <div>${shoppingBasket[indexBasket].amount}x</div>
             <img src="./assets/icons/plus.png" class="basket-btn" onclick="increaseAmount(${indexBasket})" alt="">   
-            <div>${(dishBasketPrice * dishBasketAmount).toFixed(2).toString().replace('.', ',')}€ </div>
+            <div>${(shoppingBasket[indexBasket].price * shoppingBasket[indexBasket].amount).toFixed(2).toString().replace('.', ',')}€ </div>
             <img src="./assets/icons/trash.png" class="basket-btn" onclick="deleteFromShoppingBasket(${indexBasket})" alt="">   
         </div>
         `;
