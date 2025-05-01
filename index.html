@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
-    <link rel="shortcut icon" href="./assets/icons/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="style.css">
-    <script src="./scripts/database.js"></script>
+    <script src="./scripts/db.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="script.js"></script>
 </head>
@@ -16,7 +20,7 @@
 
     <header>
         <nav>
-            <img class="logo" src="./assets/img/Logo.png" alt="">
+            <img class="logo" src="./assets/img/logo.png" alt="">
             <img id="open-menu-img" onclick="openShopingBasket()" class='menu-img' src="./assets/icons/open.png" alt="">
             <img id="close-menu-img" onclick="closeShopingBasket()" class='menu-img d-none'
                 src="./assets/icons/close.png" alt="">
@@ -37,16 +41,16 @@
 
                 <div class="restaurant-title-container">
                     <h1>Restaurant Pizza</h1>
-                    <span class="customer-review">Bewertung (4.2 von 5 Sternen) </span>
+                    <span class="customer-review">Bewertung (4.2 von 5 Sternen)</span>
                 </div>
                 <div class="category-container">
                     <img class="arrow" src="./assets/icons/arrow.png" alt="Pfeil">
                     <div class="category-box">
                         <a href="#hauptgerichte">
-                            <h2>Hauptgerichte</h2>
+                            <h2 class="category-box-link">Hauptgerichte</h2>
                         </a>
                         <a href="">
-                            <h2>Salate</h2>
+                            <h2 class="category-box-link">Salate</h2>
                         </a>
                     </div>
                 </div>
@@ -65,7 +69,8 @@
 
         <aside id="page_style_side" class="page-style-side d-none">
             <div class="shopping-basket">
-                <div id="overlay" class="overlay d-none">Vielen Dank! <br><br>Deine Bestellung wurde erfolgreich übermittelt
+                <div id="overlay" class="overlay d-none">Vielen Dank! <br><br>Deine Bestellung wurde erfolgreich
+                    übermittelt
                 </div>
                 <div class="shopping-basket-top" onclick="closeShopingBasket()">
                     <h2>Warenkorb</h2>

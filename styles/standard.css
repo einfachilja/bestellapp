@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 18px;
+}
